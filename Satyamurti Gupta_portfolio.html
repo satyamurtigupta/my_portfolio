@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satyamurti Gupta - Interactive Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-color: #111827; /* Gray 900 */
+            --secondary-color: #1f2937; /* Gray 800 */
+            --accent-color: #38bdf8; /* Sky 400 */
+            --text-primary: #f3f4f6; /* Gray 100 */
+            --text-secondary: #9ca3af; /* Gray 400 */
+        }
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+        @import url('https://rsms.me/inter/inter.css');
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 1.25rem;
+            left: -0.875rem; /* Adjust to center on the line */
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 9999px;
+            background-color: var(--secondary-color);
+            border: 4px solid var(--accent-color);
+            z-index: 10;
+        }
+        .details-content {
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+        }
+        .details-content.open {
+            max-height: 1000px; /* Large enough to fit content */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-sky-400">
+                SG
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#summary" class="text-gray-300 hover:text-sky-400 transition duration-300">Summary</a>
+                <a href="#experience" class="text-gray-300 hover:text-sky-400 transition duration-300">Experience</a>
+                <a href="#skills" class="text-gray-300 hover:text-sky-400 transition duration-300">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-sky-400 transition duration-300">Projects</a>
+                <a href="#education" class="text-gray-300 hover:text-sky-400 transition duration-300">Education</a>
+            </div>
+             <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-300 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#summary" class="block text-center py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Summary</a>
+            <a href="#experience" class="block text-center py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Experience</a>
+            <a href="#skills" class="block text-center py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Skills</a>
+            <a href="#projects" class="block text-center py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Projects</a>
+            <a href="#education" class="block text-center py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Education</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Summary Section -->
+        <section id="summary" class="mb-24 scroll-mt-20">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white">Satyamurti Gupta</h1>
+            <h2 class="text-xl md:text-2xl font-light text-sky-400 mt-2">Data Engineer | Aspiring Data Scientist & AI/ML Engineer</h2>
+            
+            <div class="flex flex-wrap gap-4 md:gap-8 mt-6 text-gray-400">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
+                    <span>Greater Bengaluru Area, India</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+                    <a href="mailto:satyamurti161@gmail.com" class="hover:text-sky-400 transition">satyamurti161@gmail.com</a>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                    <span>9967805986</span>
+                </div>
+                <div class="flex items-center gap-2">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <a href="https://www.linkedin.com/in/satyamurtigupta" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition">linkedin.com/in/satyamurtigupta</a>
+                </div>
+            </div>
+
+            <p class="mt-8 max-w-4xl text-lg text-gray-300 leading-relaxed">
+                Data Engineer with 10+ years of experience in ETL development, data warehousing, and integration using Informatica, Oracle, and Unix scripting. Proven track record of leading teams, streamlining complex processes, and driving performance improvements of up to 30%. Adept at collaborating with cross-functional stakeholders to deliver data-driven solutions that inform strategic business decisions. Skilled in AI/ML concepts with hands-on knowledge from Executive M.Tech studies.
+            </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-white mb-12">Professional Experience</h2>
+            <div class="relative border-l-2 border-gray-700 ml-3">
+                
+                <!-- Synechron -->
+                <div class="mb-10 ml-8 timeline-item">
+                    <div class="experience-toggle cursor-pointer group">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold text-sky-400 group-hover:text-sky-300">Associate Specialist</h3>
+                            <span class="text-sm text-gray-400">March 2024 - Present</span>
+                        </div>
+                        <p class="text-md text-gray-200">Synechron - India</p>
+                        <span class="inline-block mt-2 text-gray-400 group-hover:text-white transition-transform transform duration-300">
+                           <span class="arrow-icon">▶</span> View Details
+                        </span>
+                    </div>
+                    <div class="details-content">
+                        <ul class="mt-4 list-disc list-inside text-gray-300 space-y-2">
+                            <li>Spearheaded end-to-end solutions design for financial data integration projects, utilizing Informatica PowerCenter and cloud-based data sources.</li>
+                            <li>Collaborated with cross-functional stakeholders to develop scalable data pipelines, reducing data processing time and enhancing reporting accuracy.</li>
+                            <li>Mentored junior engineers, driving knowledge sharing and process consistency across the team.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Allstate -->
+                <div class="mb-10 ml-8 timeline-item">
+                     <div class="experience-toggle cursor-pointer group">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold text-sky-400 group-hover:text-sky-300">Lead Consultant</h3>
+                            <span class="text-sm text-gray-400">Nov 2021 - Mar 2024</span>
+                        </div>
+                        <p class="text-md text-gray-200">Allstate - India</p>
+                         <span class="inline-block mt-2 text-gray-400 group-hover:text-white transition-transform transform duration-300">
+                            <span class="arrow-icon">▶</span> View Details
+                         </span>
+                    </div>
+                    <div class="details-content">
+                        <ul class="mt-4 list-disc list-inside text-gray-300 space-y-2">
+                            <li>Led an Agile team of 4, overseeing the successful delivery of Cash Reconciliation System projects for insurance partners.</li>
+                            <li>Developed and maintained dynamic ETL pipelines integrating diverse merchant files and APIs using Informatica IICS and Python, enhancing reconciliation accuracy by 20%.</li>
+                            <li>Implemented robust validation and data quality frameworks, reducing data errors and improving compliance.</li>
+                            <li>Enhanced ETL job performance by introducing Unix scripting automation and optimizing workflows.</li>
+                            <li>Designed and executed month-end closure automation, resulting in a smoother financial data reporting cycle.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Accenture -->
+                <div class="mb-10 ml-8 timeline-item">
+                     <div class="experience-toggle cursor-pointer group">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold text-sky-400 group-hover:text-sky-300">Senior Application Developer</h3>
+                            <span class="text-sm text-gray-400">Feb 2018 - Oct 2021</span>
+                        </div>
+                        <p class="text-md text-gray-200">Accenture - Bangalore Urban, Karnataka, India</p>
+                         <span class="inline-block mt-2 text-gray-400 group-hover:text-white transition-transform transform duration-300">
+                           <span class="arrow-icon">▶</span> View Details
+                         </span>
+                    </div>
+                    <div class="details-content">
+                        <ul class="mt-4 list-disc list-inside text-gray-300 space-y-2">
+                            <li>Transformed legacy PL/SQL procedures to efficient ETL pipelines using Informatica, improving data warehouse efficiency for Takeda Pharmaceuticals.</li>
+                            <li>Engineered Excel-based system mapping tools, streamlining business rule application and reducing manual errors by 25%.</li>
+                            <li>Implemented pushdown optimization and automated scheduler scripts, reducing ETL cycle time and improving system reliability.</li>
+                            <li>Formulated workflow restartability protocols and batch notification automation with Unix and Informatica Scheduler.</li>
+                            <li>Coordinated multi-region Informatica jobs for EMEA deployments, supporting the launch of analytic dashboards.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- IBM -->
+                <div class="ml-8 timeline-item">
+                     <div class="experience-toggle cursor-pointer group">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold text-sky-400 group-hover:text-sky-300">ETL Informatica Developer</h3>
+                            <span class="text-sm text-gray-400">Jan 2015 - Feb 2018</span>
+                        </div>
+                        <p class="text-md text-gray-200">IBM - Mumbai Area, India</p>
+                         <span class="inline-block mt-2 text-gray-400 group-hover:text-white transition-transform transform duration-300">
+                            <span class="arrow-icon">▶</span> View Details
+                         </span>
+                    </div>
+                    <div class="details-content">
+                        <ul class="mt-4 list-disc list-inside text-gray-300 space-y-2">
+                            <li>Developed and deployed end-to-end ETL solutions for HDFC Bank, managing large-scale financial and CRM data flows.</li>
+                            <li>Produced detailed mapping specifications and data models, ensuring seamless integration between source and target systems.</li>
+                            <li>Created and optimized SCD Type 2 mappings, establishing a 'Golden Record' for customer demographic data.</li>
+                            <li>Automated data loads from diverse sources including flat files and relational databases, enhancing operational efficiency.</li>
+                            <li>Designed and implemented advanced data transformations leveraging Informatica Designer and IBM data modeling frameworks.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-white mb-12">Skills Distribution</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-2xl">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+                <div id="skills-list" class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                    <!-- Skills will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-white mb-12">Project Spotlight</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col hover:shadow-sky-400/20 hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-sky-400">SQT - Cash Recon & Finance System</h3>
+                    <p class="text-gray-300 mt-2 flex-grow">Designed and implemented cash reconciliation and financial configuration systems for insurance clients, integrating diverse merchant files and APIs for seamless invoice and reporting generation.</p>
+                    <div class="mt-4">
+                        <h4 class="font-bold text-gray-400">Impact:</h4>
+                        <p class="text-sm text-gray-300">Enabled accurate reconciliation of partner transactions, streamlined invoice generation, and improved reporting efficiency.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-700 flex flex-wrap gap-2">
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">Informatica IICS</span>
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">Python</span>
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">Unix</span>
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">Tableau</span>
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">Netsuite</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col hover:shadow-sky-400/20 hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-sky-400">Product & Customer Data Warehouse</h3>
+                    <p class="text-gray-300 mt-2 flex-grow">Developed robust ETL solutions for Takeda Pharmaceuticals, automating global cost analysis and facilitating optimized product distribution for EUCAN region.</p>
+                    <div class="mt-4">
+                        <h4 class="font-bold text-gray-400">Impact:</h4>
+                        <p class="text-sm text-gray-300">Enhanced data accuracy and enabled real-time business insights for multiple regions.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-700 flex flex-wrap gap-2">
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">Informatica PC</span>
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">PL/SQL</span>
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">SAP</span>
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">Unix</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col hover:shadow-sky-400/20 hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-sky-400">HDFC DWH Augmentation</h3>
+                    <p class="text-gray-300 mt-2 flex-grow">Engineered comprehensive data warehouse augmentation for HDFC Bank, including implementation of SCD Type 2 mappings and golden record creation.</p>
+                    <div class="mt-4">
+                        <h4 class="font-bold text-gray-400">Impact:</h4>
+                        <p class="text-sm text-gray-300">Improved customer data reporting reliability and enabled advanced analytics for banking operations.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-700 flex flex-wrap gap-2">
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">Informatica PC</span>
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">IBM SOR</span>
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">Oracle</span>
+                        <span class="bg-sky-900/50 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">UNIX</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="scroll-mt-20">
+            <h2 class="text-3xl font-bold text-white mb-12">Education</h2>
+            <div class="space-y-8">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <p class="text-lg font-semibold text-sky-400">Executive Master of Technology - MTech, Artificial Intelligence and Machine Learning</p>
+                    <p class="text-gray-300">Indian Institute of Technology Jammu</p>
+                    <p class="text-gray-400 text-sm">Expected August 2024</p>
+                </div>
+                <div class="bg-gray-800/50 p-6 rounded-lg">
+                    <p class="text-lg font-semibold text-sky-400">B-Tech, Information Technology</p>
+                    <p class="text-gray-300">Lovely Professional University</p>
+                    <p class="text-gray-400 text-sm">2013</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 mt-24">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-400">
+            <p>&copy; 2024 Satyamurti Gupta. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Resume Data
+        const resumeData = {
+            "skills": [{"category":"ETL & Data Integration","items":["Informatica PowerCenter","Informatica IICS","ETL Development","Data Warehousing"]},{"category":"Programming & Scripting","items":["Python","Unix Shell Scripting","C#.NET","ASP.NET"]},{"category":"Databases","items":["Oracle","PL/SQL","Relational Databases"]},{"category":"Data Analytics & Vis","items":["Tableau"]},{"category":"Cloud & Big Data","items":["Snowflake","AWS","Azure","GCP","Apache Spark","Hadoop"]},{"category":"Data Orchestration","items":["Airflow","Prefect","Git","Jenkins","Docker"]},{"category":"Data Modeling","items":["Star Schema","Snowflake Schema","Data Quality"]},{"category":"Domain Expertise","items":["Insurance","Pharmaceuticals","Banking"]}]
+        };
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Experience Timeline Toggle
+        const experienceToggles = document.querySelectorAll('.experience-toggle');
+        experienceToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('.arrow-icon');
+                content.classList.toggle('open');
+                if (content.classList.contains('open')) {
+                    icon.style.transform = 'rotate(90deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Skills Chart
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        const skillsLabels = resumeData.skills.map(skill => skill.category);
+        const skillsData = resumeData.skills.map(skill => skill.items.length);
+        
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: skillsLabels,
+                datasets: [{
+                    label: '# of Skills per Category',
+                    data: skillsData,
+                    backgroundColor: 'rgba(56, 189, 248, 0.6)',
+                    borderColor: 'rgba(56, 189, 248, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: '#1f2937',
+                        titleFont: { size: 14 },
+                        bodyFont: { size: 12 },
+                        padding: 10,
+                        cornerRadius: 4
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#9ca3af',
+                            font: {
+                                family: "'Inter', sans-serif"
+                            }
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        },
+                        ticks: {
+                            color: '#d1d5db',
+                            font: {
+                                family: "'Inter', sans-serif",
+                                size: 14
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Populate Skills List
+        const skillsListContainer = document.getElementById('skills-list');
+        resumeData.skills.flatMap(s => s.items).forEach(item => {
+            const skillTag = document.createElement('span');
+            skillTag.className = 'bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-lg shadow-md hover:bg-gray-600 transition-colors';
+            skillTag.textContent = item;
+            skillsListContainer.appendChild(skillTag);
+        });
+
+    </script>
+</body>
+</html>
