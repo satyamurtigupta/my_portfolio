@@ -5,131 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Satyamurti | AI Data Engineer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        bgDark: '#050505',
-                        cardDark: '#0a0a0a',
-                        cardBorder: '#1f2937',
-                        accent1: '#38bdf8', /* light blue */
-                        accent2: '#10b981', /* emerald */
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-text {
-            background-clip: text;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #818cf8, #c084fc, #fb7185);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-image: linear-gradient(to right, #38bdf8, #10b981);
         }
-        .card-hover {
+        .skill-tag {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
             transition: all 0.3s ease;
         }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
-            border-color: rgba(56, 189, 248, 0.3);
+        .skill-tag:hover {
+            background: rgba(139, 92, 246, 0.3);
+            transform: translateY(-2px);
         }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #374151; }
+        .timeline-border {
+            border-left: 2px solid rgba(139, 92, 246, 0.3);
+        }
     </style>
 </head>
-<body class="bg-bgDark text-gray-300 antialiased selection:bg-accent1 selection:text-white">
+<body class="overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed w-full top-0 z-50 bg-bgDark/80 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-white tracking-wider">SATYAMURTI<span class="text-accent1">.</span></a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-accent1 transition-colors">About</a>
-                <a href="#experience" class="hover:text-accent1 transition-colors">Experience</a>
-                <a href="#projects" class="hover:text-accent1 transition-colors">Projects</a>
-                <a href="#skills" class="hover:text-accent1 transition-colors">Skills</a>
-                <a href="#contact" class="hover:text-accent1 transition-colors">Contact</a>
-            </div>
+    <nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="text-xl font-bold tracking-tighter">S <span class="text-indigo-500">.</span></div>
+        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-medium">
+            <a href="#about" class="hover:text-indigo-400 transition">About</a>
+            <a href="#experience" class="hover:text-indigo-400 transition">Experience</a>
+            <a href="#projects" class="hover:text-indigo-400 transition">Projects</a>
+            <a href="#skills" class="hover:text-indigo-400 transition">Skills</a>
+            <a href="#contact" class="hover:text-indigo-400 transition">Contact</a>
         </div>
+        <a href="mailto:satyamurti161@gmail.com" class="bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded-full text-xs font-bold transition">HIRE ME</a>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
-        <!-- Background subtle glow -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent1/10 rounded-full blur-[120px] -z-10"></div>
-        
-        <div class="max-w-4xl mx-auto text-center z-10">
-            <h2 class="text-accent1 font-semibold tracking-wide uppercase mb-4">Portfolio & Resume</h2>
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                Hi, I'm <span class="gradient-text">Satyamurti</span>
-            </h1>
-            <p class="text-2xl md:text-3xl text-gray-200 mb-6 font-light">AI Data Engineer</p>
-            <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-                11+ years of experience integrating robust Data Engineering with innovative AI-driven workflows across enterprise platforms.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contact" class="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors">Get in Touch</a>
-                <a href="#projects" class="px-8 py-3 rounded-full border border-gray-600 hover:border-accent1 hover:text-accent1 transition-colors">View My Work</a>
-            </div>
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative pt-20">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-900/20 via-black to-black -z-10"></div>
+        <div data-aos="zoom-out" data-aos-duration="1500" class="mb-6">
+            <span class="text-indigo-400 tracking-[0.3em] uppercase text-sm font-semibold">11+ Years of Innovation</span>
+        </div>
+        <h1 data-aos="fade-up" data-aos-duration="1000" class="text-6xl md:text-8xl font-black mb-4">
+            SATYA<span class="text-gradient">MURTI</span>
+        </h1>
+        <p data-aos="fade-up" data-aos-delay="200" class="text-xl md:text-2xl text-gray-400 max-w-2xl font-light">
+            AI Data Engineer specializing in <span class="text-white border-b border-indigo-500">Intelligent Data Pipelines</span>, Large-scale Migrations, and AI Workflows.
+        </p>
+        <div data-aos="fade-up" data-aos-delay="400" class="mt-10 flex space-x-4">
+            <a href="#experience" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-indigo-500 hover:text-white transition-all">View Work</a>
+            <a href="https://linkedin.com" class="glass px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-all">LinkedIn</a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 px-6 bg-cardDark border-t border-b border-gray-900">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">About <span class="gradient-text">Me</span></h2>
-                <div class="space-y-4 text-gray-400 leading-relaxed text-lg">
-                    <p>
-                        I am an AI Data Engineer with a proven track record in building and optimizing data pipelines, executing large-scale migrations, and delivering automation solutions across the BFSI, Pharma, and Insurance domains. My core expertise lies in ETL, Data Warehousing, and Cloud Data Platforms utilizing Informatica, SQL, Unix, Python, and robust database architectures.
-                    </p>
-                    <p>
-                        Currently pursuing my Executive M-Tech in Artificial Intelligence & Machine Learning at IIT Jammu to expand my expertise in ML, AI workflows, and data science applications.
-                    </p>
-                    <p>
-                        I specialize in bridging the gap between traditional data engineering and modern AI. My recent hands-on projects, including AI agents like BookNest and Profolio, demonstrate my ability to develop intelligent, production-ready workflows.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="space-y-8">
-                <!-- Education -->
-                <div class="bg-bgDark p-8 rounded-2xl border border-cardBorder relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-accent2/5 rounded-bl-[100px] -z-0"></div>
-                    <h3 class="text-xl font-semibold text-white mb-6 flex items-center relative z-10"><i class="fas fa-graduation-cap text-accent2 mr-3"></i>Education</h3>
-                    
-                    <div class="relative z-10 space-y-6">
-                        <div class="border-l-2 border-gray-800 pl-4">
-                            <h4 class="text-lg font-medium text-gray-200">IIT Jammu</h4>
-                            <p class="text-accent2 text-sm">Ex-M-TECH in AI & ML</p>
-                            <p class="text-gray-500 text-sm mt-1">2024 - Present</p>
-                        </div>
-                        <div class="border-l-2 border-gray-800 pl-4">
-                            <h4 class="text-lg font-medium text-gray-200">Lovely Professional University</h4>
-                            <p class="text-accent2 text-sm">B-TECH - IT</p>
-                            <p class="text-gray-500 text-sm mt-1">2009 - 2013 | 71.80%</p>
-                            <p class="text-gray-400 text-xs mt-1"><i class="fas fa-award text-accent1 mr-1"></i> Received Scholarship of 1 Lakh/Year</p>
-                        </div>
+    <!-- Stats/About Summary -->
+    <section id="about" class="py-20 px-6 md:px-12 bg-[#050505]">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-4xl font-bold mb-6">Expertise in <span class="text-indigo-500">Data Architecture</span></h2>
+                <p class="text-gray-400 leading-relaxed text-lg mb-6">
+                    Proven track record in building and optimizing data pipelines across BFSI, Pharma, and Insurance domains. Currently pursuing an Executive M-Tech in AI & ML at <span class="text-white font-semibold">IIT Jammu</span> to bridge the gap between Big Data and Intelligent Systems.
+                </p>
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-3xl font-bold text-white">11+</h3>
+                        <p class="text-gray-500 uppercase text-xs tracking-widest">Years Experience</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-white">40%</h3>
+                        <p class="text-gray-500 uppercase text-xs tracking-widest">Efficiency Gain</p>
                     </div>
                 </div>
-
-                <!-- Languages -->
-                <div class="bg-bgDark p-8 rounded-2xl border border-cardBorder">
-                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center"><i class="fas fa-globe text-accent2 mr-3"></i>Languages</h3>
-                    <div class="flex gap-4">
-                        <span class="px-4 py-2 bg-gray-900 rounded-lg text-gray-300 border border-gray-800">English</span>
-                        <span class="px-4 py-2 bg-gray-900 rounded-lg text-gray-300 border border-gray-800">Hindi</span>
+            </div>
+            <div data-aos="fade-left" class="glass p-8 rounded-3xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <i class="fas fa-quote-right text-8xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 italic text-indigo-300">Current Focus</h3>
+                <p class="text-gray-300">"Developing AI agents and automation projects like BookNest and Profolio, integrating high-performance data engineering with production-ready AI workflows."</p>
+                <div class="mt-8 flex items-center">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center font-bold text-xl">S</div>
+                    <div class="ml-4">
+                        <p class="font-bold">IIT Jammu</p>
+                        <p class="text-xs text-gray-500">M-Tech AI & ML (2024-Present)</p>
                     </div>
                 </div>
             </div>
@@ -137,332 +112,205 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-24 px-6 relative">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Work <span class="gradient-text">Experience</span></h2>
+    <section id="experience" class="py-20 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <h2 data-aos="fade-up" class="text-4xl md:text-5xl font-bold mb-16 text-center">Professional <span class="text-indigo-500">Journey</span></h2>
             
-            <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-700 before:to-transparent">
-                
-                <!-- Job 1 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-bgDark bg-accent1 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow absolute left-0 md:left-1/2 transform -translate-x-1/2">
-                        <i class="fas fa-briefcase text-sm"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl bg-cardDark border border-cardBorder card-hover ml-auto md:ml-0 md:mr-auto md:group-odd:ml-auto md:group-odd:mr-0">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-xl text-white">Synechron</h3>
-                            <span class="text-xs font-medium px-2 py-1 bg-gray-800 text-gray-300 rounded">2024 - Present</span>
+            <div class="space-y-12">
+                <!-- Synechron -->
+                <div data-aos="fade-up" class="relative pl-8 timeline-border">
+                    <div class="absolute -left-2 top-0 w-4 h-4 bg-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.8)]"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold">Associate Technology Specialist</h3>
+                            <p class="text-indigo-400 font-semibold">Synechron | 2024 - Present</p>
                         </div>
-                        <h4 class="text-accent1 font-medium mb-4">Associate Technology Specialist</h4>
-                        <ul class="text-gray-400 text-sm space-y-2 list-disc list-inside">
-                            <li>Migrated Wealth Data Mart (DB2 → SQL Server) using Informatica, Unix, and SQL.</li>
-                            <li>Converted DB2 procedures, Unix scripts, and Informatica jobs to SQL Server workflows.</li>
-                            <li>Built automated table comparison scripts, cutting schema validation effort by 40%.</li>
-                        </ul>
+                        <span class="text-gray-500 mt-2 md:mt-0 italic">Bengaluru, India</span>
                     </div>
+                    <ul class="text-gray-400 space-y-2 max-w-4xl">
+                        <li>• Orchestrated Wealth Data Mart migration (DB2 → SQL Server) using Informatica and Unix.</li>
+                        <li>• Developed automated table comparison scripts, reducing validation effort by 40%.</li>
+                        <li>• Awarded SURPASS Award Q4-2024 for exceptional contribution.</li>
+                    </ul>
                 </div>
 
-                <!-- Job 2 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-bgDark bg-gray-700 text-gray-300 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow absolute left-0 md:left-1/2 transform -translate-x-1/2">
-                        <i class="fas fa-briefcase text-sm"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl bg-cardDark border border-cardBorder card-hover ml-auto md:ml-0 md:mr-auto md:group-odd:ml-auto md:group-odd:mr-0">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-xl text-white">Allstate India Pvt Ltd</h3>
-                            <span class="text-xs font-medium px-2 py-1 bg-gray-800 text-gray-300 rounded">2021 - 2024</span>
+                <!-- Allstate -->
+                <div data-aos="fade-up" class="relative pl-8 timeline-border">
+                    <div class="absolute -left-2 top-0 w-4 h-4 bg-gray-700 rounded-full"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold">Lead Consultant</h3>
+                            <p class="text-indigo-400 font-semibold">Allstate India Pvt Ltd | 2021 - 2024</p>
                         </div>
-                        <h4 class="text-accent1 font-medium mb-4">Lead Consultant</h4>
-                        <ul class="text-gray-400 text-sm space-y-2 list-disc list-inside">
-                            <li>Designed a dynamic file ingestion solution for merchant files of varying types and structures for warranty reconciliation.</li>
-                            <li>Integrated partners (Amazon, Walmart, eBay) into Squaretrade's platform for bookkeeping and invoicing.</li>
-                        </ul>
+                        <span class="text-gray-500 mt-2 md:mt-0 italic">Insurance Domain</span>
                     </div>
+                    <ul class="text-gray-400 space-y-2 max-w-4xl">
+                        <li>• Designed ingestion solutions for dynamic merchant files (Amazon, Walmart, eBay) for Squaretrade.</li>
+                        <li>• Streamlined warranty data bookkeeping and invoicing processes globally.</li>
+                    </ul>
                 </div>
 
-                <!-- Job 3 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-bgDark bg-gray-700 text-gray-300 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow absolute left-0 md:left-1/2 transform -translate-x-1/2">
-                        <i class="fas fa-briefcase text-sm"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl bg-cardDark border border-cardBorder card-hover ml-auto md:ml-0 md:mr-auto md:group-odd:ml-auto md:group-odd:mr-0">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-xl text-white">Accenture India Pvt. Ltd</h3>
-                            <span class="text-xs font-medium px-2 py-1 bg-gray-800 text-gray-300 rounded">2018 - 2021</span>
+                <!-- Accenture -->
+                <div data-aos="fade-up" class="relative pl-8 timeline-border">
+                    <div class="absolute -left-2 top-0 w-4 h-4 bg-gray-700 rounded-full"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold">Data Specialist</h3>
+                            <p class="text-indigo-400 font-semibold">Accenture India Pvt. Ltd | 2018 - 2021</p>
                         </div>
-                        <h4 class="text-accent1 font-medium mb-4">Data Specialist</h4>
-                        <ul class="text-gray-400 text-sm space-y-2 list-disc list-inside">
-                            <li>Managed global Product Data Warehouse (PDW) to calculate COGS for Takeda products.</li>
-                            <li>Enabled profit margin optimization through accurate redistribution of material and labor costs.</li>
-                        </ul>
                     </div>
+                    <ul class="text-gray-400 space-y-2 max-w-4xl">
+                        <li>• Managed global Product Data Warehouse (PDW) to calculate COGS for Takeda products.</li>
+                        <li>• Employee of the Month awardee for optimizing ETL performance.</li>
+                    </ul>
                 </div>
 
-                <!-- Job 4 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-bgDark bg-gray-700 text-gray-300 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow absolute left-0 md:left-1/2 transform -translate-x-1/2">
-                        <i class="fas fa-briefcase text-sm"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl bg-cardDark border border-cardBorder card-hover ml-auto md:ml-0 md:mr-auto md:group-odd:ml-auto md:group-odd:mr-0">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-xl text-white">IBM India Pvt. Ltd</h3>
-                            <span class="text-xs font-medium px-2 py-1 bg-gray-800 text-gray-300 rounded">2015 - 2018</span>
+                <!-- IBM -->
+                <div data-aos="fade-up" class="relative pl-8 timeline-border">
+                    <div class="absolute -left-2 top-0 w-4 h-4 bg-gray-700 rounded-full"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold">System Engineer</h3>
+                            <p class="text-indigo-400 font-semibold">IBM India Pvt. Ltd | 2015 - 2018</p>
                         </div>
-                        <h4 class="text-accent1 font-medium mb-4">System Engineer</h4>
-                        <ul class="text-gray-400 text-sm space-y-2 list-disc list-inside">
-                            <li>Led the enterprise-wide data warehouse augmentation project for HDFC Bank.</li>
-                            <li>Replaced REVELEUS system with Informatica 9.x and Netezza database using IBM's BDW model.</li>
-                        </ul>
                     </div>
-                </div>
-
-            </div>
-
-            <!-- Key Result Areas Highlight -->
-            <div class="mt-16 bg-gray-900/40 border border-gray-800 rounded-2xl p-8 backdrop-blur-sm">
-                <h3 class="text-2xl font-bold text-white mb-6 flex items-center"><i class="fas fa-star text-accent2 mr-3"></i>Key Operations & Impact</h3>
-                <div class="grid md:grid-cols-2 gap-4 text-gray-400 text-sm">
-                    <div class="flex items-start"><i class="fas fa-check-circle text-accent1 mt-1 mr-3"></i><span>Led an Agile team of 4, managing sprint planning, refinement, and stand-ups.</span></div>
-                    <div class="flex items-start"><i class="fas fa-check-circle text-accent1 mt-1 mr-3"></i><span>Optimized ETL workflows and SQL queries, significantly reducing processing time.</span></div>
-                    <div class="flex items-start"><i class="fas fa-check-circle text-accent1 mt-1 mr-3"></i><span>Designed data quality and patch jobs, ensuring smooth month-end closures.</span></div>
-                    <div class="flex items-start"><i class="fas fa-check-circle text-accent1 mt-1 mr-3"></i><span>Built innovative solutions like Warranty Cancellation Reports and refund logic.</span></div>
-                    <div class="flex items-start"><i class="fas fa-check-circle text-accent1 mt-1 mr-3"></i><span>Converted PL/SQL procedures into ETL code to enhance PDW maintainability.</span></div>
-                    <div class="flex items-start"><i class="fas fa-check-circle text-accent1 mt-1 mr-3"></i><span>Implemented pushdown optimization and email triggers for system monitoring.</span></div>
+                    <ul class="text-gray-400 space-y-2 max-w-4xl">
+                        <li>• Led data warehouse augmentation for HDFC Bank replacing REVELEUS with Informatica & Netezza.</li>
+                        <li>• Received recognition from Asia Pacific Head for system functionality improvements.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section (AI/ML) -->
-    <section id="projects" class="py-24 px-6 bg-cardDark border-t border-b border-gray-900">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 text-center">AI & ML <span class="gradient-text">Projects</span></h2>
-            
+    <!-- AI Projects Section -->
+    <section id="projects" class="py-20 px-6 md:px-12 bg-[#050505]">
+        <div class="max-w-6xl mx-auto">
+            <h2 data-aos="fade-up" class="text-4xl md:text-5xl font-bold mb-16 text-center italic">AI & ML <span class="text-indigo-500">Portfolio</span></h2>
             <div class="grid md:grid-cols-3 gap-8">
-                
                 <!-- Project 1 -->
-                <div class="bg-bgDark border border-cardBorder rounded-2xl p-8 card-hover flex flex-col h-full">
-                    <div class="w-14 h-14 bg-blue-900/30 text-accent1 rounded-xl flex items-center justify-center text-2xl mb-6 border border-blue-900/50">
-                        <i class="fas fa-book-open"></i>
+                <div data-aos="flip-left" class="glass p-8 rounded-2xl hover:border-indigo-500 transition-all group">
+                    <div class="text-indigo-500 mb-4 text-3xl group-hover:scale-110 transition">
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">BookNest</h3>
-                    <p class="text-accent2 text-sm mb-4 font-medium">AI Ebook Creation & Authoring Agent</p>
-                    <div class="text-gray-400 text-sm space-y-3 mb-8 flex-grow">
-                        <p>Built an AI-powered ebook agent utilizing n8n workflows and LLM integrations.</p>
-                        <p>Automates ebook generation (Interview Guides, Coding Cheat Sheets) and dynamically formats output based on predefined E-book themes.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded-full text-xs text-gray-300">n8n</span>
-                        <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded-full text-xs text-gray-300">LLM APIs</span>
-                        <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded-full text-xs text-gray-300">Automation</span>
+                    <h3 class="text-xl font-bold mb-2">BookNest</h3>
+                    <p class="text-gray-400 text-sm mb-4">AI Ebook creation agent using n8n and LLM integration. Automates formatting and content generation.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] uppercase font-bold text-indigo-300">n8n</span>
+                        <span class="text-[10px] uppercase font-bold text-indigo-300">LLM</span>
                     </div>
                 </div>
-
                 <!-- Project 2 -->
-                <div class="bg-bgDark border border-cardBorder rounded-2xl p-8 card-hover flex flex-col h-full">
-                    <div class="w-14 h-14 bg-emerald-900/30 text-accent2 rounded-xl flex items-center justify-center text-2xl mb-6 border border-emerald-900/50">
-                        <i class="fas fa-user-tie"></i>
+                <div data-aos="flip-left" data-aos-delay="200" class="glass p-8 rounded-2xl hover:border-indigo-500 transition-all group">
+                    <div class="text-indigo-500 mb-4 text-3xl group-hover:scale-110 transition">
+                        <i class="fas fa-file-invoice"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Profolio</h3>
-                    <p class="text-accent1 text-sm mb-4 font-medium">AI Resume & Career Agent</p>
-                    <div class="text-gray-400 text-sm space-y-3 mb-8 flex-grow">
-                        <p>Designed an AI agent that evaluates resumes for ATS scores and optimization.</p>
-                        <p>Generates detailed resume analysis reports and creates ATS-friendly resumes. Includes capability to automatically generate a portfolio for interactive career branding.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded-full text-xs text-gray-300">GenAI</span>
-                        <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded-full text-xs text-gray-300">Python</span>
-                        <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded-full text-xs text-gray-300">Prompt Engineering</span>
+                    <h3 class="text-xl font-bold mb-2">Profolio</h3>
+                    <p class="text-gray-400 text-sm mb-4">AI Resume agent evaluating ATS scores and generating interactive career branding portfolios.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] uppercase font-bold text-indigo-300">Python</span>
+                        <span class="text-[10px] uppercase font-bold text-indigo-300">ATS Optimization</span>
                     </div>
                 </div>
-
                 <!-- Project 3 -->
-                <div class="bg-bgDark border border-cardBorder rounded-2xl p-8 card-hover flex flex-col h-full">
-                    <div class="w-14 h-14 bg-purple-900/30 text-purple-400 rounded-xl flex items-center justify-center text-2xl mb-6 border border-purple-900/50">
-                        <i class="fas fa-image"></i>
+                <div data-aos="flip-left" data-aos-delay="400" class="glass p-8 rounded-2xl hover:border-indigo-500 transition-all group">
+                    <div class="text-indigo-500 mb-4 text-3xl group-hover:scale-110 transition">
+                        <i class="fas fa-eye"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Image Denoising</h3>
-                    <p class="text-purple-400 text-sm mb-4 font-medium">Convolutional Autoencoders</p>
-                    <div class="text-gray-400 text-sm space-y-2 mb-8 flex-grow">
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Implemented a CNN architecture from scratch (≈5.5M parameters) for dimensionality reduction.</li>
-                            <li>Pretrained on STL-10 dataset and fine-tuned on CelebA dataset (200K+ images).</li>
-                            <li>Achieved 87% reduction in reconstruction error (MSE) and 49% improvement in SSIM.</li>
-                        </ul>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded-full text-xs text-gray-300">Hugging Face</span>
-                        <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded-full text-xs text-gray-300">Deep Learning</span>
-                        <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded-full text-xs text-gray-300">CNNs</span>
+                    <h3 class="text-xl font-bold mb-2">Image Denoising</h3>
+                    <p class="text-gray-400 text-sm mb-4">Convolutional Autoencoder for noise reduction. Achieved 87% MSE reduction using CelebA dataset.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] uppercase font-bold text-indigo-300">CNN</span>
+                        <span class="text-[10px] uppercase font-bold text-indigo-300">PyTorch</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Skills & Certifications Section -->
-    <section id="skills" class="py-24 px-6 relative">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12">
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <h2 data-aos="fade-up" class="text-4xl font-bold mb-12">Technical <span class="text-indigo-500">Arsenal</span></h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-indigo-400 font-bold mb-4 uppercase tracking-tighter">ETL & BI</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">IICS</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">Informatica PC</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">Data Warehousing</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-indigo-400 font-bold mb-4 uppercase tracking-tighter">Programming</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">Python</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">SQL / PL-SQL</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">Unix Shell</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-indigo-400 font-bold mb-4 uppercase tracking-tighter">AI / ML</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">n8n</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">LLMs</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">Numpy/Pandas</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-indigo-400 font-bold mb-4 uppercase tracking-tighter">Cloud</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">Azure</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">AWS</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">Snowflake</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 md:px-12 bg-indigo-900/10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 data-aos="fade-up" class="text-5xl font-bold mb-8">Let's Build the <span class="text-gradient">Future.</span></h2>
+            <p class="text-gray-400 mb-12">Currently open to senior leadership roles in AI Data Engineering and Cloud Architecture.</p>
             
-            <!-- Skills -->
-            <div class="lg:col-span-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-10"><span class="gradient-text">Skills</span> & Expertise</h2>
-                
-                <div class="grid sm:grid-cols-2 gap-8">
-                    <!-- Technical Skills -->
-                    <div class="space-y-6">
-                        <h3 class="text-xl font-semibold text-white border-b border-gray-800 pb-2">Technical Skills</h3>
-                        
-                        <div>
-                            <p class="text-gray-400 text-sm mb-2">ETL Tools & Datawarehousing</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded text-sm text-gray-200">IICS</span>
-                                <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded text-sm text-gray-200">Informatica Power Center</span>
-                                <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded text-sm text-gray-200">Datawarehouse</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <p class="text-gray-400 text-sm mb-2">Database & Cloud Foundation</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded text-sm text-gray-200">SQL Server</span>
-                                <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded text-sm text-gray-200">Oracle</span>
-                                <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded text-sm text-gray-200">Postgres SQL</span>
-                                <span class="px-3 py-1 bg-[#0a192f] border border-[#1e2d3d] rounded text-sm text-blue-300">Azure</span>
-                                <span class="px-3 py-1 bg-[#0a192f] border border-[#1e2d3d] rounded text-sm text-blue-300">AWS</span>
-                                <span class="px-3 py-1 bg-[#0a192f] border border-[#1e2d3d] rounded text-sm text-blue-300">GCP</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <p class="text-gray-400 text-sm mb-2">Programming & AI Tools</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded text-sm text-gray-200">Python</span>
-                                <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded text-sm text-gray-200">Unix</span>
-                                <span class="px-3 py-1 bg-gray-900 border border-gray-700 rounded text-sm text-gray-200">SQL / PL/SQL</span>
-                                <span class="px-3 py-1 bg-[#0a2f1d] border border-[#1e3d2c] rounded text-sm text-emerald-300">n8n</span>
-                                <span class="px-3 py-1 bg-[#0a2f1d] border border-[#1e3d2c] rounded text-sm text-emerald-300">LLM APIs</span>
-                                <span class="px-3 py-1 bg-[#0a2f1d] border border-[#1e3d2c] rounded text-sm text-emerald-300">Pandas/Numpy/Matplotlib</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Core Competencies -->
-                    <div class="space-y-6">
-                        <h3 class="text-xl font-semibold text-white border-b border-gray-800 pb-2">Core Competencies</h3>
-                        <div class="grid grid-cols-1 gap-3">
-                            <div class="flex items-center text-gray-300 bg-cardDark p-3 rounded-lg border border-cardBorder"><i class="fas fa-check text-accent1 mr-3"></i> Leadership & Team Building</div>
-                            <div class="flex items-center text-gray-300 bg-cardDark p-3 rounded-lg border border-cardBorder"><i class="fas fa-check text-accent1 mr-3"></i> Agile Scrum Methodologies</div>
-                            <div class="flex items-center text-gray-300 bg-cardDark p-3 rounded-lg border border-cardBorder"><i class="fas fa-check text-accent1 mr-3"></i> Data Integration & ETL Dev</div>
-                            <div class="flex items-center text-gray-300 bg-cardDark p-3 rounded-lg border border-cardBorder"><i class="fas fa-check text-accent1 mr-3"></i> Cloud Data Management</div>
-                            <div class="flex items-center text-gray-300 bg-cardDark p-3 rounded-lg border border-cardBorder"><i class="fas fa-check text-accent1 mr-3"></i> CI/CD & App Lifecycle</div>
-                        </div>
-                    </div>
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <a href="tel:9967805986" class="glass p-6 rounded-2xl hover:bg-white/5 transition">
+                    <i class="fas fa-phone text-indigo-500 mb-4 text-2xl"></i>
+                    <p class="text-sm text-gray-400">Call Me</p>
+                    <p class="font-bold">9967805986</p>
+                </a>
+                <a href="mailto:satyamurti161@gmail.com" class="glass p-6 rounded-2xl hover:bg-white/5 transition">
+                    <i class="fas fa-envelope text-indigo-500 mb-4 text-2xl"></i>
+                    <p class="text-sm text-gray-400">Email Me</p>
+                    <p class="font-bold">satyamurti161@gmail.com</p>
+                </a>
+                <div class="glass p-6 rounded-2xl">
+                    <i class="fas fa-location-dot text-indigo-500 mb-4 text-2xl"></i>
+                    <p class="text-sm text-gray-400">Location</p>
+                    <p class="font-bold">Bengaluru, India</p>
                 </div>
             </div>
 
-            <!-- Certs & Achievements -->
-            <div class="lg:col-span-4 space-y-10">
-                
-                <!-- Certifications -->
-                <div class="bg-cardDark p-8 rounded-2xl border border-cardBorder">
-                    <h3 class="text-xl font-semibold text-white mb-6 flex items-center"><i class="fas fa-certificate text-accent2 mr-3"></i>Certifications</h3>
-                    <ul class="space-y-4 text-sm text-gray-400">
-                        <li class="flex items-start">
-                            <i class="fas fa-award text-gray-600 mt-1 mr-3"></i>
-                            <span class="text-gray-300">Microsoft Certified: Azure Data Fundamentals</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-award text-gray-600 mt-1 mr-3"></i>
-                            <span class="text-gray-300">Snowflake - The Complete Masterclass (Udemy)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-award text-gray-600 mt-1 mr-3"></i>
-                            <span class="text-gray-300">Python 101 for Data Science (IBM Cognitive Class)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-award text-gray-600 mt-1 mr-3"></i>
-                            <span class="text-gray-300">Python Bootcamp: From Zero to Hero (Udemy)</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Achievements -->
-                <div class="bg-gradient-to-br from-gray-900 to-bgDark p-8 rounded-2xl border border-gray-800">
-                    <h3 class="text-xl font-semibold text-white mb-6 flex items-center"><i class="fas fa-trophy text-yellow-500 mr-3"></i>Achievements</h3>
-                    <ul class="space-y-3 text-sm text-gray-400 list-disc list-inside">
-                        <li><span class="text-gray-200">Synechron</span> - SURPASS Award (Q4 - 2024)</li>
-                        <li><span class="text-gray-200">Accenture</span> - Employee of The Month</li>
-                        <li><span class="text-gray-200">IBM</span> - Recognition from Vainitha Narayanan (Asia Pacific Head - 2018)</li>
-                        <li><span class="text-gray-200">GATE</span> - Score of 341 (2013)</li>
-                        <li><span class="text-gray-200">CDAC</span> - AIR#5</li>
-                    </ul>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Contact & Footer Section -->
-    <section id="contact" class="pt-24 pb-12 px-6 bg-cardDark border-t border-gray-900">
-        <div class="max-w-4xl mx-auto text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Let's <span class="gradient-text">Connect</span></h2>
-            <p class="text-gray-400 text-lg">Looking to integrate AI with robust data engineering, or discuss modern cloud architectures? Feel free to reach out.</p>
-        </div>
-
-        <div class="max-w-5xl mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-            <!-- Phone -->
-            <div class="bg-bgDark p-6 rounded-xl border border-gray-800 flex flex-col items-center text-center card-hover hover:border-accent1">
-                <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-accent1 mb-4 text-xl">
-                    <i class="fas fa-phone"></i>
-                </div>
-                <h4 class="text-white font-medium mb-1">Phone</h4>
-                <a href="tel:9967805986" class="text-gray-400 text-sm hover:text-white transition-colors">9967805986</a>
-            </div>
-
-            <!-- Email -->
-            <div class="bg-bgDark p-6 rounded-xl border border-gray-800 flex flex-col items-center text-center card-hover hover:border-accent2">
-                <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-accent2 mb-4 text-xl">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <h4 class="text-white font-medium mb-1">Email</h4>
-                <a href="mailto:satyamurti161@gmail.com" class="text-gray-400 text-sm hover:text-white transition-colors">satyamurti161@gmail.com</a>
-            </div>
-
-            <!-- Location -->
-            <div class="bg-bgDark p-6 rounded-xl border border-gray-800 flex flex-col items-center text-center card-hover hover:border-purple-400">
-                <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-purple-400 mb-4 text-xl">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <h4 class="text-white font-medium mb-1">Location</h4>
-                <span class="text-gray-400 text-sm">Bengaluru, India</span>
-            </div>
-
-            <!-- Web & Social -->
-            <div class="bg-bgDark p-6 rounded-xl border border-gray-800 flex flex-col items-center text-center card-hover hover:border-blue-500">
-                <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-blue-500 mb-4 text-xl">
-                    <i class="fas fa-globe"></i>
-                </div>
-                <h4 class="text-white font-medium mb-1">Online</h4>
-                <div class="flex gap-3 text-sm">
-                    <a href="http://satyamurti.com" target="_blank" class="text-gray-400 hover:text-white transition-colors">Website</a>
-                    <span class="text-gray-700">|</span>
-                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">LinkedIn</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto text-sm text-gray-500">
-            <p>&copy; 2024 Satyamurti. All rights reserved.</p>
-            <div class="flex space-x-4 mt-4 md:mt-0">
-                <a href="#" class="hover:text-accent1 transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
-                <a href="mailto:satyamurti161@gmail.com" class="hover:text-accent2 transition-colors"><i class="fas fa-envelope text-xl"></i></a>
-                <a href="http://satyamurti.com" class="hover:text-white transition-colors"><i class="fas fa-link text-xl"></i></a>
+            <div class="flex justify-center space-x-6 text-2xl">
+                <a href="#" class="text-gray-500 hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-gray-500 hover:text-white transition"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-gray-500 hover:text-white transition"><i class="fas fa-globe"></i></a>
             </div>
         </div>
     </section>
 
+    <footer class="py-8 text-center text-gray-600 text-sm border-t border-white/5">
+        &copy; 2024 Satyamurti. Crafted with precision for the AI era.
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out',
+        });
+    </script>
 </body>
 </html>
